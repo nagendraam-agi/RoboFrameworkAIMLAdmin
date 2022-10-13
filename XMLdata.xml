@@ -1,0 +1,9 @@
+
+<TestGoogleApplication>
+    <arisusername>NAGENDRA</arisusername>
+    <arispywd>Password1#</arispywd>
+    <aimladminurl>https://aiml-qc-2022200.agcloud.bz/aiml-admin/pages/main</aimladminurl>
+    <chromepath>C:/bin/chromedriver.exe</chromepath>
+    <aristitle>Login</aristitle>
+<!--    <imagePath>/Users/mithunroy/Desktop/aa.png</imagePath>-->
+</TestGoogleApplication>

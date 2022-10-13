@@ -1,0 +1,69 @@
+Scenario-1
+
+1. Launch https://www.arisglobal.com/
+2. Validate its Title
+3. Validate Logo
+4. Validate Header “Delivering safer, faster breakthroughs”
+5. Validate Primary Menu bar options.
+
+Scenario-2
+
+1. Launch https://www.arisglobal.com/
+2. Hover on LifeSphere
+3. Hover On LifeSphere Medical Affairs
+4. Click on Reporter
+5. Validate Watch a Video button
+6. Validate Schedule a Demo button
+7. Click on Schedule a Demo button
+8. Fill the form
+9. Validate Request Demo button but don’t click on it.
+
+Scenario-3
+
+1. Launch https://www.arisglobal.com/who-we-are/leadership/
+2. Validate Executive Team is selected by default
+3. Click on Board of Directors
+4. Validate names are changing
+5. Click on Advisory Board
+6. Validate names are changing
+7. Click on Explore Open positions button 
+8. Print Our mission message
+9. Print Our Vision message
+
+Scenario-4
+
+1. Launch https://www.arisglobal.com/
+2. Click on Careers
+3. Click on View Job Opening in ArisGlobal button
+4. Search for automation testing and Location as India
+5. Print all Table options
+6. Click on Create Alert
+7. Type 12345 on Password field
+8. Click on Show button
+9. Read the Password and match it
+
+Scenario-5
+
+1. Launch https://www.arisglobal.com/careers/
+2. Validate all Quick Links options
+3. Navigate to each Quicklinks and match their url and title
+4. Click on Twitter button
+5. Validate twitter url
+
+********************************************************************************************************************
+
+Page object Model
+
+Use More Customize Keys.
+3. All Test Data should be driven from XML File
+4. Use Test Set Up , Test TearDown
+5. User Global variable if required ...
+6. Push All Your code to git.
+
+********************************************************************************************************************
+
+Git Commands
+
+Enter ssh-keygen -t rsa in cmd
+
+

@@ -1,0 +1,757 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.4 on win32)" generated="20221013 10:29:18.481" rpa="false" schemaversion="3">
+<suite id="s1" name="Testscripts" source="C:\AI_ML_Development\RobotFrameworkAIMLAdmin\Testscripts">
+<suite id="s1-s1" name="06 TestServicesPDFExtractor" source="C:\AI_ML_Development\RobotFrameworkAIMLAdmin\Testscripts\06_TestServicesPDFExtractor.robot">
+<test id="s1-s1-t1" name="TC001" line="12">
+<kw name="Setup" library="Common" type="SETUP">
+<kw name="Setup chromedriver" library="Common">
+<kw name="Set Environment Variable" library="OperatingSystem">
+<arg>webdriver.chrome.driver</arg>
+<arg>C:\bin\chromedriver.exe</arg>
+<doc>Sets an environment variable to a specified value.</doc>
+<msg timestamp="20221013 10:29:19.943" level="INFO">Environment variable 'webdriver.chrome.driver' set to value 'C:binchromedriver.exe'.</msg>
+<status status="PASS" starttime="20221013 10:29:19.943" endtime="20221013 10:29:19.943"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:19.927" endtime="20221013 10:29:19.943"/>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>about:blank</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20221013 10:29:19.943" level="INFO">Opening browser 'Chrome' to base url 'about:blank'.</msg>
+<status status="PASS" starttime="20221013 10:29:19.943" endtime="20221013 10:29:21.824"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221013 10:29:21.824" endtime="20221013 10:29:21.945"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:19.927" endtime="20221013 10:29:21.945"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Go To</arg>
+<arg>${aimladminurldev}</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${aimladminurldev}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20221013 10:29:21.948" level="INFO">Opening url 'https://aiml-dev-2022210.agcloud.bz/aiml-admin/'</msg>
+<status status="PASS" starttime="20221013 10:29:21.948" endtime="20221013 10:29:23.841"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:21.945" endtime="20221013 10:29:23.841"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Login to the Application</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Login to the Application" library="LoginPage">
+<kw name="Validate Current page title" library="KeywordDefinitions">
+<arg>${loginpagetitle}</arg>
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${current_page_title}</var>
+<doc>Returns the title of the current page.</doc>
+<msg timestamp="20221013 10:29:23.852" level="INFO">${current_page_title} = Login</msg>
+<status status="PASS" starttime="20221013 10:29:23.844" endtime="20221013 10:29:23.852"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${current_page_title}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221013 10:29:23.853" level="INFO">Login</msg>
+<status status="PASS" starttime="20221013 10:29:23.853" endtime="20221013 10:29:23.853"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${current_page_title}</arg>
+<arg>${pagetitle}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20221013 10:29:23.853" endtime="20221013 10:29:23.854"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:23.843" endtime="20221013 10:29:23.854"/>
+</kw>
+<kw name="EnterTextData" library="KeywordDefinitions">
+<arg>${usernamefield}</arg>
+<arg>${validuser}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${textelement}</arg>
+<arg>${data}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:23.855" level="INFO">Typing text 'Nagendra' into text field '//form[@id='loginForm']/label[contains(text(),'User Name')]//following-sibling::input[@id='userNameTxt']'.</msg>
+<status status="PASS" starttime="20221013 10:29:23.855" endtime="20221013 10:29:23.934"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:23.854" endtime="20221013 10:29:23.934"/>
+</kw>
+<kw name="EnterTextData" library="KeywordDefinitions">
+<arg>${passwordfield}</arg>
+<arg>${validpassword}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${textelement}</arg>
+<arg>${data}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:23.934" level="INFO">Typing text 'Password1#' into text field '//form[@id='loginForm']/label[contains(text(),'Password')]//following-sibling::input[@id='passwordTxt']'.</msg>
+<status status="PASS" starttime="20221013 10:29:23.934" endtime="20221013 10:29:24.029"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:23.934" endtime="20221013 10:29:24.030"/>
+</kw>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${login_button}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:24.031" level="INFO">Clicking element '//*[@id='loginForm']/div[1]/div/button'.</msg>
+<status status="PASS" starttime="20221013 10:29:24.031" endtime="20221013 10:29:24.093"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:25.102" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:29:24.093" endtime="20221013 10:29:25.102"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:24.030" endtime="20221013 10:29:25.102"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:26.109" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:29:25.102" endtime="20221013 10:29:26.109"/>
+</kw>
+<kw name="Handle PopUps" library="KeywordDefinitions">
+<arg>${popupcontainer}</arg>
+<arg>${loginpopupyes}</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${c}</var>
+<arg>${popup}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221013 10:29:28.522" level="INFO">${c} = 0</msg>
+<status status="PASS" starttime="20221013 10:29:26.111" endtime="20221013 10:29:28.522"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${c}&gt;0</arg>
+<arg>Click the Element</arg>
+<arg>${btnyesno}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20221013 10:29:28.522" endtime="20221013 10:29:28.522"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:30.524" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:28.522" endtime="20221013 10:29:30.524"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:26.110" endtime="20221013 10:29:30.524"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:32.527" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:30.524" endtime="20221013 10:29:32.527"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:23.842" endtime="20221013 10:29:32.527"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:23.842" endtime="20221013 10:29:32.527"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Check the Landing page after login</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Check the Landing page after login" library="LoginPage">
+<kw name="Landing Page Check" library="KeywordDefinitions">
+<arg>${DashboardLandingPage}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${LandingPage}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221013 10:29:32.527" endtime="20221013 10:29:32.560"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Welcome page displayed</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221013 10:29:32.560" level="INFO">Welcome page displayed</msg>
+<status status="PASS" starttime="20221013 10:29:32.560" endtime="20221013 10:29:32.560"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:32.527" endtime="20221013 10:29:32.560"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:32.527" endtime="20221013 10:29:32.560"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:32.527" endtime="20221013 10:29:32.560"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Select the DB</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Select the DB" library="LoginPage">
+<kw name="Select Value From Dropdown" library="KeywordDefinitions">
+<arg>${dropdownelement}</arg>
+<arg>${dropdownvaldev}</arg>
+<kw name="Select From List By Value" library="SeleniumLibrary">
+<arg>${dropdown}</arg>
+<arg>${dropdownval}</arg>
+<doc>Selects options from selection list ``locator`` by ``values``.</doc>
+<msg timestamp="20221013 10:29:32.560" level="INFO">Selecting options from selection list '//select[@id='agl-profile-switcher']' by value LSMV#GDPR.</msg>
+<status status="PASS" starttime="20221013 10:29:32.560" endtime="20221013 10:29:32.647"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:35.652" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:32.647" endtime="20221013 10:29:35.652"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:32.560" endtime="20221013 10:29:35.652"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:32.560" endtime="20221013 10:29:35.652"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:32.560" endtime="20221013 10:29:35.652"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Navigate to Test Services page</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Navigate to Test Services page" library="TestServices">
+<kw name="Navigate to tab" library="KeywordDefinitions">
+<arg>${tabtestservices}</arg>
+<arg>${nlpservice}</arg>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${clickele}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:35.652" level="INFO">Clicking element '//td[@id='menucontainer']//a[contains(.,'Test Services')]'.</msg>
+<status status="PASS" starttime="20221013 10:29:35.652" endtime="20221013 10:29:36.494"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:37.507" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:29:36.494" endtime="20221013 10:29:37.507"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:35.652" endtime="20221013 10:29:37.508"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:39.518" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:37.508" endtime="20221013 10:29:39.518"/>
+</kw>
+<kw name="Check Page contains element" library="KeywordDefinitions">
+<arg>${clickele}</arg>
+<arg>${comparingelement}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221013 10:29:39.531" level="INFO">Current page contains element '//td[@id='menucontainer']//a[contains(.,'Test Services')]'.</msg>
+<status status="PASS" starttime="20221013 10:29:39.518" endtime="20221013 10:29:39.531"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${txtelement}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:39.616" level="INFO">${txtelement} = Test Services</msg>
+<status status="PASS" starttime="20221013 10:29:39.531" endtime="20221013 10:29:39.616"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${txtelement}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221013 10:29:39.616" level="INFO">Test Services</msg>
+<status status="PASS" starttime="20221013 10:29:39.616" endtime="20221013 10:29:39.616"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"""${txtelement}""" == """${comparingelementtxt}"""</arg>
+<arg>Log</arg>
+<arg>${txtelement}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20221013 10:29:39.616" endtime="20221013 10:29:39.616"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:41.621" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:39.616" endtime="20221013 10:29:41.621"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:39.518" endtime="20221013 10:29:41.622"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:35.652" endtime="20221013 10:29:41.622"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:35.652" endtime="20221013 10:29:41.622"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:35.652" endtime="20221013 10:29:41.622"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>PDF Extractor Service</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="PDF Extractor Service" library="TestServices">
+<kw name="Check Page contains element" library="KeywordDefinitions">
+<arg>${tabtestservices}</arg>
+<arg>${tabtestservicestxt}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221013 10:29:41.633" level="INFO">Current page contains element '//td[@id='menucontainer']//a[contains(.,'Test Services')]'.</msg>
+<status status="PASS" starttime="20221013 10:29:41.623" endtime="20221013 10:29:41.633"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${txtelement}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:41.641" level="INFO">${txtelement} = Test Services</msg>
+<status status="PASS" starttime="20221013 10:29:41.633" endtime="20221013 10:29:41.641"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${txtelement}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221013 10:29:41.641" level="INFO">Test Services</msg>
+<status status="PASS" starttime="20221013 10:29:41.641" endtime="20221013 10:29:41.641"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"""${txtelement}""" == """${comparingelementtxt}"""</arg>
+<arg>Log</arg>
+<arg>${txtelement}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log" library="BuiltIn">
+<arg>${txtelement}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221013 10:29:41.641" level="INFO">Test Services</msg>
+<status status="PASS" starttime="20221013 10:29:41.641" endtime="20221013 10:29:41.641"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:41.641" endtime="20221013 10:29:41.641"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:43.650" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:41.641" endtime="20221013 10:29:43.650"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:41.623" endtime="20221013 10:29:43.650"/>
+</kw>
+<kw name="Scroll Element Into View" library="SeleniumLibrary">
+<arg>${relevancylabel}</arg>
+<doc>Scrolls the element identified by ``locator`` into view.</doc>
+<status status="PASS" starttime="20221013 10:29:43.650" endtime="20221013 10:29:43.981"/>
+</kw>
+<kw name="Check Page contains element" library="KeywordDefinitions">
+<arg>${pdfextlabel}</arg>
+<arg>${pdfextlabeltxt}</arg>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20221013 10:29:43.997" level="INFO">Current page contains element '//*[@id='C73-C74']//td[contains(text(), 'PDF Extractor Service')]'.</msg>
+<status status="PASS" starttime="20221013 10:29:43.981" endtime="20221013 10:29:43.997"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${txtelement}</var>
+<arg>${element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:44.039" level="INFO">${txtelement} = PDF Extractor Service</msg>
+<status status="PASS" starttime="20221013 10:29:43.997" endtime="20221013 10:29:44.039"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${txtelement}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221013 10:29:44.040" level="INFO">PDF Extractor Service</msg>
+<status status="PASS" starttime="20221013 10:29:44.040" endtime="20221013 10:29:44.040"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>"""${txtelement}""" == """${comparingelementtxt}"""</arg>
+<arg>Log</arg>
+<arg>${txtelement}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Log" library="BuiltIn">
+<arg>${txtelement}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20221013 10:29:44.042" level="INFO">PDF Extractor Service</msg>
+<status status="PASS" starttime="20221013 10:29:44.042" endtime="20221013 10:29:44.042"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:44.040" endtime="20221013 10:29:44.042"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:46.042" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:44.042" endtime="20221013 10:29:46.042"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:43.981" endtime="20221013 10:29:46.042"/>
+</kw>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${btnbrowse}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:29:46.042" level="INFO">Clicking element '//*[@id='C75_bb-btn']'.</msg>
+<status status="PASS" starttime="20221013 10:29:46.042" endtime="20221013 10:29:46.120"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:47.141" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:29:46.120" endtime="20221013 10:29:47.141"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:46.042" endtime="20221013 10:29:47.142"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:29:50.161" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:47.142" endtime="20221013 10:29:50.161"/>
+</kw>
+<kw name="Select File" library="Reusable">
+<arg>${pdffilepath}</arg>
+<status status="PASS" starttime="20221013 10:29:50.161" endtime="20221013 10:29:58.353"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:30:01.356" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20221013 10:29:58.354" endtime="20221013 10:30:01.356"/>
+</kw>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${btnsendtopdf}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:30:01.356" level="INFO">Clicking element '//*[@id='C76-btn']'.</msg>
+<status status="PASS" starttime="20221013 10:30:01.356" endtime="20221013 10:30:01.431"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:30:02.446" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:30:01.431" endtime="20221013 10:30:02.446"/>
+</kw>
+<status status="PASS" starttime="20221013 10:30:01.356" endtime="20221013 10:30:02.446"/>
+</kw>
+<kw name="Run keyword until success" library="KeywordDefinitions">
+<arg>Wait Until Element Is Visible</arg>
+<arg>${popupsendtopdf}</arg>
+<kw name="Wait Until Keyword Succeeds" library="BuiltIn">
+<arg>400s</arg>
+<arg>1s</arg>
+<arg>${KW}</arg>
+<arg>@{KWARGS}</arg>
+<doc>Runs the specified keyword and retries if it fails.</doc>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:07.709" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:07.709" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:02.448" endtime="20221013 10:30:07.720"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:13.895" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:13.895" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:08.727" endtime="20221013 10:30:13.895"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:20.104" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:20.104" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:14.907" endtime="20221013 10:30:20.104"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:26.254" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:26.254" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:21.114" endtime="20221013 10:30:26.254"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:32.433" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:32.433" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:27.265" endtime="20221013 10:30:32.434"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:38.625" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:38.625" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:33.435" endtime="20221013 10:30:38.625"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:44.819" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-7.png"&gt;&lt;img src="selenium-screenshot-7.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:44.820" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:39.632" endtime="20221013 10:30:44.821"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:50.989" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-8.png"&gt;&lt;img src="selenium-screenshot-8.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:50.990" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:45.824" endtime="20221013 10:30:50.990"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:30:57.164" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-9.png"&gt;&lt;img src="selenium-screenshot-9.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:30:57.164" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:51.997" endtime="20221013 10:30:57.164"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:03.333" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-10.png"&gt;&lt;img src="selenium-screenshot-10.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:03.333" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:30:58.178" endtime="20221013 10:31:03.333"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:09.510" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-11.png"&gt;&lt;img src="selenium-screenshot-11.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:09.510" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:04.348" endtime="20221013 10:31:09.510"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:15.781" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-12.png"&gt;&lt;img src="selenium-screenshot-12.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:15.781" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:10.512" endtime="20221013 10:31:15.781"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:21.991" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-13.png"&gt;&lt;img src="selenium-screenshot-13.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:21.991" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:16.788" endtime="20221013 10:31:21.991"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:28.157" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:28.157" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:22.996" endtime="20221013 10:31:28.157"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:34.333" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:34.333" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:29.169" endtime="20221013 10:31:34.333"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:40.696" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-16.png"&gt;&lt;img src="selenium-screenshot-16.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:40.704" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:35.337" endtime="20221013 10:31:40.704"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:46.870" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-17.png"&gt;&lt;img src="selenium-screenshot-17.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:46.870" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:41.713" endtime="20221013 10:31:46.870"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:53.054" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-18.png"&gt;&lt;img src="selenium-screenshot-18.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:53.055" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:47.880" endtime="20221013 10:31:53.055"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:31:59.258" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-19.png"&gt;&lt;img src="selenium-screenshot-19.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:31:59.258" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:31:54.060" endtime="20221013 10:31:59.258"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:32:05.613" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-20.png"&gt;&lt;img src="selenium-screenshot-20.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:32:05.613" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:32:00.267" endtime="20221013 10:32:05.613"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:32:11.964" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-21.png"&gt;&lt;img src="selenium-screenshot-21.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:32:11.964" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:32:06.627" endtime="20221013 10:32:11.964"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20221013 10:32:18.135" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-22.png"&gt;&lt;img src="selenium-screenshot-22.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20221013 10:32:18.135" level="FAIL">Element '//div[@class = 'agl-info-box']' not visible after 5 seconds.</msg>
+<status status="FAIL" starttime="20221013 10:32:12.977" endtime="20221013 10:32:18.135"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>@{KWARGS}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20221013 10:32:19.144" endtime="20221013 10:32:19.181"/>
+</kw>
+<status status="PASS" starttime="20221013 10:30:02.447" endtime="20221013 10:32:19.181"/>
+</kw>
+<status status="PASS" starttime="20221013 10:30:02.446" endtime="20221013 10:32:19.181"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:20.192" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:32:19.181" endtime="20221013 10:32:20.192"/>
+</kw>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${popupclose}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:32:20.192" level="INFO">Clicking element '//*[@class='agl-info-box-close']'.</msg>
+<status status="PASS" starttime="20221013 10:32:20.192" endtime="20221013 10:32:20.247"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:21.251" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:32:20.247" endtime="20221013 10:32:21.251"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:20.192" endtime="20221013 10:32:21.251"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:22.259" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:32:21.251" endtime="20221013 10:32:22.259"/>
+</kw>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${btndownloadpdf}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:32:22.259" level="INFO">Clicking element '//*[@id='C78-btn']'.</msg>
+<status status="PASS" starttime="20221013 10:32:22.259" endtime="20221013 10:32:22.327"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:23.337" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:32:22.327" endtime="20221013 10:32:23.338"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:22.259" endtime="20221013 10:32:23.340"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:41.623" endtime="20221013 10:32:23.340"/>
+</kw>
+<status status="PASS" starttime="20221013 10:29:41.623" endtime="20221013 10:32:23.340"/>
+</kw>
+<kw name="Run Keyword And Continue On Failure" library="BuiltIn">
+<arg>Logout from the Application</arg>
+<doc>Runs the keyword and continues execution even if a failure occurs.</doc>
+<kw name="Logout from the Application" library="LoginPage">
+<kw name="Logout" library="KeywordDefinitions">
+<arg>${iconuserdetails}</arg>
+<arg>${signout}</arg>
+<arg>${confirmpopup}</arg>
+<arg>${signoutconfirmyes}</arg>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${element1}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:32:23.344" level="INFO">Clicking element '//img[@id='agl-user-icn']'.</msg>
+<status status="PASS" starttime="20221013 10:32:23.344" endtime="20221013 10:32:23.946"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:24.947" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:32:23.946" endtime="20221013 10:32:24.947"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:23.343" endtime="20221013 10:32:24.947"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:26.950" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:32:24.947" endtime="20221013 10:32:26.950"/>
+</kw>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${element2}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:32:26.954" level="INFO">Clicking element '//div[contains(text(),'Sign Out')]'.</msg>
+<status status="PASS" starttime="20221013 10:32:26.953" endtime="20221013 10:32:27.066"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:28.076" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:32:27.067" endtime="20221013 10:32:28.076"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:26.950" endtime="20221013 10:32:28.076"/>
+</kw>
+<kw name="Handle PopUps" library="KeywordDefinitions">
+<arg>${popup}</arg>
+<arg>${btnyesno}</arg>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${c}</var>
+<arg>${popup}</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20221013 10:32:28.095" level="INFO">${c} = 1</msg>
+<status status="PASS" starttime="20221013 10:32:28.076" endtime="20221013 10:32:28.095"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${c}&gt;0</arg>
+<arg>Click the Element</arg>
+<arg>${btnyesno}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Click the Element" library="KeywordDefinitions">
+<arg>${btnyesno}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${element}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20221013 10:32:28.095" level="INFO">Clicking element '//button[@id='agl-confirm-yes']'.</msg>
+<status status="PASS" starttime="20221013 10:32:28.095" endtime="20221013 10:32:28.172"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>1</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:29.175" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20221013 10:32:28.172" endtime="20221013 10:32:29.175"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:28.095" endtime="20221013 10:32:29.175"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:28.095" endtime="20221013 10:32:29.175"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20221013 10:32:31.184" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221013 10:32:29.176" endtime="20221013 10:32:31.184"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:28.076" endtime="20221013 10:32:31.185"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:23.342" endtime="20221013 10:32:31.185"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:23.342" endtime="20221013 10:32:31.185"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:23.341" endtime="20221013 10:32:31.185"/>
+</kw>
+<kw name="Teardown" library="Common" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20221013 10:32:31.186" endtime="20221013 10:32:33.550"/>
+</kw>
+<status status="PASS" starttime="20221013 10:32:31.186" endtime="20221013 10:32:33.550"/>
+</kw>
+<doc>Logs in and navigates to all the pages in the application</doc>
+<tag>TestServicePDFExtractor</tag>
+<status status="PASS" starttime="20221013 10:29:19.927" endtime="20221013 10:32:33.550"/>
+</test>
+<doc>Login and Navigate Pages</doc>
+<status status="PASS" starttime="20221013 10:29:18.519" endtime="20221013 10:32:33.550"/>
+</suite>
+<status status="PASS" starttime="20221013 10:29:18.494" endtime="20221013 10:32:33.550"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">TestServicePDFExtractor</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testscripts">Testscripts</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="06 TestServicesPDFExtractor">Testscripts.06 TestServicesPDFExtractor</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
