@@ -12,7 +12,7 @@ Test Teardown      Teardown
 TC001
 #    [Template]  Run Keyword And Continue On Failure
     [Documentation]     Logs in and navigates to all the pages in the application
-    [Tags]      TestServices
+    [Tags]      TestService
     Go To       ${aimladminurlqc}
 
     Login to the Application
